@@ -9,8 +9,7 @@ import com.example.algamoney.api.repository.projection.ResumoLancamento;
 
 public interface LancamentoRepositoryQuery {
 	
-	public Page<Lancamento> fitrar (LancamentoFilter lancamentoFilter, Pageable pageable);
-	
-	public Page<ResumoLancamento> resumir (LancamentoFilter lancamentoFilter, Pageable pageable);
+	public Page<Lancamento> filtrar(LancamentoFilter lancamentoFilter, Pageable pageable);
+	public Page<ResumoLancamento> resumir(LancamentoFilter lancamentoFilter, Pageable pageable);
 
 }

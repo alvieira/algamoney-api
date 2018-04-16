@@ -14,19 +14,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "pessoa")
 public class Pessoa {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 
 	@NotNull
 	private String nome;
-	
-	@NotNull
-	private Boolean ativo;	
-	
+
 	@Embedded
 	private Endereco endereco;
+
+	@NotNull
+	private Boolean ativo;
 
 	public Long getCodigo() {
 		return codigo;
@@ -44,6 +44,14 @@ public class Pessoa {
 		this.nome = nome;
 	}
 
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+
 	public Boolean getAtivo() {
 		return ativo;
 	}
@@ -52,14 +60,6 @@ public class Pessoa {
 		this.ativo = ativo;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-	
 	@JsonIgnore
 	@Transient
 	public boolean isInativo() {
@@ -89,7 +89,6 @@ public class Pessoa {
 		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
-	}	
-	
+	}
 
 }
